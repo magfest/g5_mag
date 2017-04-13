@@ -1,0 +1,41 @@
+name: Social Media Buttons
+description: Displays Social Media Buttons For MAGFest
+type: particle
+icon: fa-pencil-square-o
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable the particle.
+      default: true
+
+    buttons:
+      type: collection.list
+      array: true
+      label: Social Media Button
+      description: Create a button with a link and a font awesome icon
+      value: title
+      ajax: true
+
+      fields:
+        .icon:
+          type: input.icon
+          label: Font Awesome Icon
+          placeholder: fa-facebook
+
+        .url:
+          type: input.text
+          label: URL
+          placeholder: http://example.com
+
+        .class:
+          type: input.selectize
+          label: CSS Classes
+          description: Enter CSS class names.
+          default:

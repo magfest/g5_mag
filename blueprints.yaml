@@ -1,0 +1,17 @@
+name: MAGFest Standard
+version: "0.0.1"
+description: "Default MAGFest Theme"
+icon: gantry
+author:
+  name: Daniel Alexander Ross Evans
+  email: dare@magfest.org
+  url: http://daredoes.work
+homepage: http://magfest.org
+readme: https://github.com/gantry/gantry5/blob/master/README.md
+keywords: magfest, mag, theme
+bugs: https://github.com/gantry/gantry5/issues
+license: MIT
+
+form:
+  validation: loose
+  fields:

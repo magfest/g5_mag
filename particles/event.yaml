@@ -1,0 +1,42 @@
+name: Event Details
+description: Displays Event Date and Location
+type: particle
+icon: fa-calendar
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable the particle.
+      default: true
+
+    start_date:
+      type: input.date
+      label: Start Date
+
+    start_date.formats:
+      type: select.date
+      label: Target
+      description: Select preferred date format.
+      default: l, F d, Y
+      placeholder: 'Select...'
+      selectize:
+        allowEmptyOption: true
+      options:
+        '': None
+        'l, F d, Y': Date1
+        'F d': Date2
+        'd M': Date3
+        'D, M d, Y': Date4
+        'D, M d, y': Date5
+        'l': Date6
+        'l j F Y': Date7
+
+    end_date:
+      type: input.date
+      label: End Date

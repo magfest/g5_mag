@@ -1,0 +1,8 @@
+name: V.I.P Social Buttons
+description: Displays Social Buttons on V.I.P Page
+type: particle
+icon: fa-pencil-square-o
+
+configuration:
+  caching:
+    type: static
