@@ -1,0 +1,8 @@
+name: Announcements
+description: Displays Announcements on sidebar
+type: particle
+icon: fa-pencil-square-o
+
+configuration:
+  caching:
+    type: dynamic

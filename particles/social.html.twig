@@ -2,36 +2,30 @@
 
 {% block particle %}
 	<div class="social-media-content">
-		<div class="g-grid">
-			<div class="g-block">
-				<div class="g-content">
-					<div class="row">
-						{% for p in page.children %}
-		        <div class="col s12 m6">
-							<div class="card small">
-						    <div class="card-image waves-effect waves-block waves-light">
-						      <img class="activator" src="{{p.media.images|first.url}}">
-						    </div>
-						    <div class="card-content">
-						      <span class="card-title activator grey-text text-darken-4">{{p.title}}<span class="fa fa-arrow-up right activator"></span></span>
-									{% for sm in p.header.social_media %}
-									<div class="chip">
-										<a href="{{sm.url}}">
-											<span class="fa {{sm.icon}} center"></span>
-										</a>
-									</div>
-									{% endfor %}
-						    </div>
-						    <div class="card-reveal">
-						      <span class="card-title grey-text text-darken-4">{{p.title}}</span>
-						      {{p.content|raw}}
-						    </div>
-						  </div>
-		        </div>
+		<div class="row">
+			{% for p in page.children %}
+      <div class="col s12 m6">
+				<div class="card small">
+			    <div class="card-image waves-effect waves-block waves-light">
+			      <img class="activator" src="{{p.media.images|first.url}}">
+			    </div>
+			    <div class="card-content">
+			      <span class="card-title activator grey-text text-darken-4">{{p.title}}<span class="fa fa-arrow-up right activator"></span></span>
+						{% for sm in p.header.social_media %}
+						<div class="chip">
+							<a href="{{sm.url}}">
+								<span class="fa {{sm.icon}} center"></span>
+							</a>
+						</div>
 						{% endfor %}
-		      </div>
-				</div>
-			</div>
-		</div>
+			    </div>
+			    <div class="card-reveal">
+			      <span class="card-title grey-text text-darken-4">{{p.title}}</span>
+			      {{p.content|raw}}
+			    </div>
+			  </div>
+      </div>
+			{% endfor %}
+    </div>
 	</div>
 {% endblock %}

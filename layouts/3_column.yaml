@@ -10,6 +10,9 @@ layout:
   /navigation/:
     - menu
 
+  /title/:
+    - heading
+
   /container-main/:
     -
       - sidebar 20:

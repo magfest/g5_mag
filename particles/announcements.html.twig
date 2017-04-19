@@ -1,0 +1,13 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+	<aside class="announcements">
+		<div class="title">Announcements</div>
+		<ul>
+      {% for p in pages.find("/announcements").children %}
+        <li><i class="fa fa-link"></i> <a href="#">Wanna Learn More About Our Collaboration with Pulsewave? We Got The Deets</a></li>
+				<hr>
+      {% endfor %}
+    </ul>
+	</aside>
+{% endblock %}
