@@ -1,5 +1,5 @@
-name: Social Media Buttons
-description: Displays Social Media Buttons For MAGFest
+name: Sidebar
+description: Displays awesome buttons and more on sidebar
 type: particle
 icon: fa-pencil-square-o
 
@@ -18,7 +18,7 @@ form:
     buttons:
       type: collection.list
       array: true
-      label: Social Media Button
+      label: Sidebar Buttons
       description: Create a button with a link and a font awesome icon
       value: title
       ajax: true
@@ -31,11 +31,10 @@ form:
 
         .url:
           type: input.text
-          label: URL
+          label: URL - remember to put http://
           placeholder: http://example.com
 
-        .class:
-          type: input.selectize
-          label: CSS Classes
-          description: Enter CSS class names.
-          default:
+        .text:
+          type: input.text
+          label: Title of link
+          placeholder: Click Here to XYZ

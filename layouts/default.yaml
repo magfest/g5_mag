@@ -1,7 +1,7 @@
 version: 2
 
 preset:
-  image: gantry-admin://images/layouts/default.png
+  image: gantry-admin://images/layouts/3-col.png
 
 layout:
   /header/:
@@ -12,11 +12,17 @@ layout:
 
   /title/:
     - heading
-    
-  /main/:
-    - position-breadcrumbs
-    - system-messages
-    - system-content
+
+  /container-main/:
+    -
+      - sidebar 20:
+         - position-sidebar
+      - main 60:
+          - position-breadcrumbs
+          - system-messages
+          - system-content
+      - aside 20:
+         - position-aside
 
   /footer/:
     - position-footer
@@ -24,3 +30,12 @@ layout:
 
   offcanvas:
     - mobile-menu
+
+structure:
+  sidebar:
+    subtype: aside
+    block:
+      fixed: 1
+  aside:
+    block:
+      fixed: 1
