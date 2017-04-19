@@ -34,6 +34,7 @@ section#g-title .g-content {
 .announcements{
   padding: 20px;
   border-radius: 3px;
+  background-color: #FFF8E1;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -56,11 +57,6 @@ aside ul{
   text-decoration: none;
 }
 
-aside ul li{
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 aside a{
   color: #9E9E9E;
   text-decoration: none;
@@ -80,4 +76,6 @@ hr{
   border-top-width: 2px;
   border-style: solid;
   border-color: #022AD4;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
