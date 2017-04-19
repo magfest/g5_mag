@@ -161,3 +161,47 @@ preset4:
     offcanvas:
       background: '#722829'
       text-color: '#ffffff'
+
+magwest:
+  image: 'gantry-admin://images/preset4.png'
+  description: MAGWEST_17
+  colors:
+    #- '#bf383a'
+    - '#022AD4'
+    #- '#722829'
+    - '#0D47A1'
+    #- '#757575'
+    - '#FDD835'
+
+  styles:
+    base:
+      background: '#ffffff'
+      text-color: '#666666'
+    accent:
+      color-1: '#022AD4'
+      color-2: '#FDD835'
+    header:
+      background: '#1A237E'
+      text-color: '#ffffff'
+    navigation:
+      background: '#022AD4'
+      text-color: '#ffffff'
+      overlay: 'rgba(0, 0, 0, 0.4)'
+    showcase:
+      background: '#0D47A1'
+      text-color: '#ffffff'
+    feature:
+      background: '#ffffff'
+      text-color: '#212121'
+    subfeature:
+      background: '#f0f0f0'
+      text-color: '#212121'
+    main:
+      background: '#ffffff'
+      text-color: '#212121'
+    footer:
+      background: '#ffffff'
+      text-color: '#666666'
+    offcanvas:
+      background: '#0D47A1'
+      text-color: '#ffffff'

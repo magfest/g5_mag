@@ -10,6 +10,9 @@ layout:
   /navigation/:
     - menu
 
+  /title/:
+    - heading
+    
   /main/:
     - position-breadcrumbs
     - system-messages

@@ -1,0 +1,23 @@
+name: Page Heading
+description: Displays Sample Content
+type: particle
+icon: fa-pencil-square-o
+
+configuration:
+  caching:
+    type: dynamic
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable the particle.
+      default: true
+
+    title:
+      type: input.text
+      label: Headline
+      description: Customize the headline text.
+      placeholder: Enter headline
+      overridable: false
