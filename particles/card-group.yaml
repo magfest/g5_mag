@@ -1,0 +1,8 @@
+name: Card Group
+description: Displays Cards of Page Children
+type: particle
+icon: fa-pencil-square-o
+
+configuration:
+  caching:
+    type: dynamic

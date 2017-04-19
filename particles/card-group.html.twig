@@ -1,0 +1,24 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+<div class="card">
+  <div class="hero-img bottom-inner-shadow"></div>
+  <div class="content">
+    <h1 class="title">Super MAG 2017 Music Announcement #13</h1>
+    <p>Cotton candy cheesecake oat cake carrot cake cake sesame snaps ice cream macaroon. Danish liquorice I love topping brownie. Soufflé jelly beans lemon drops I love chocolate marzipan. Icing sweet I love I love.</p>
+    <div><a href="{{p.url}}">Read More</a></div>
+  </div>
+  <div>
+</div>
+  {% for p in page.children %}
+    <div class="card">
+      <div class="hero-img bottom-inner-shadow"></div>
+      <div class="content">
+        <h1>{{p.title}}</h1>
+        <p>{{p.summary}}</p>
+        <div><a href="{{p.url}}">Read More</a></div>
+      </div>
+      <div>
+    </div>
+  {% endfor %}
+{% endblock %}
