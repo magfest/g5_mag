@@ -3,7 +3,7 @@
 {% block particle %}
 	<div class="fabs fixed-action-btn click-to-toggle">
 	 <a class="btn-floating btn-large red">
-		 <i class='fa fa-share-square-o'></i>
+		 <i class='fa {% if particle.icon %}{{particle.icon}}{% else %}fa-share-square-o{% endif %}'></i>
 	 </a>
 	 <ul>
 		 {% for sm in particle.buttons %}

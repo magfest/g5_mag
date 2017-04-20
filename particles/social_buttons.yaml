@@ -15,6 +15,11 @@ form:
       description: Globally enable the particle.
       default: true
 
+    icon:
+      type: input.text
+      label: Toggle Button Icon
+      placeholder: fa-share-square-o
+
     buttons:
       type: collection.list
       array: true
