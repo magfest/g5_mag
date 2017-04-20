@@ -5,8 +5,10 @@
 		<div class="title header"><a href="/announcements"><i class="fa fa-bullhorn"></i> Announcements</a></div>
     <div class="content">
       <ul>
-        {% for p in pages.find("/announcements").children %}
-          <li><i class="fa fa-link"></i> <a href="{{p.url}}">{{p.title}}</a></li>
+        {% for p in pages.find("/announcements").children|slice(0, 3) %}
+					{% if p.visible %}
+          	<li><i class="fa fa-link"></i> <a href="{{p.url}}">{{p.title}}</a></li>
+					{% endif %}
         {% endfor %}
       </ul>
     </div>
