@@ -3,6 +3,9 @@
 	color: $header-text-color;
 	position: relative;
 	z-index: 3;
+	background-image: url(gantry-theme://images/Ocean.png);
+	background-position: center;
+	padding-bottom: 1em;
 
 	a {
 		color: lighten($header-background, 40%);
@@ -14,6 +17,8 @@
 	.g-main-nav {
 
 		@include main-nav-colors($header-background, $header-text-color, $main-background, $main-text-color);
+
+		float: right;
 
 		.g-toplevel {
 			@include display(flex);
@@ -27,6 +32,12 @@
 		input {
 			color: $main-text-color;
 		}
+	}
+
+	.g-content {
+	    margin: 0;
+	    padding: 0;
+	    position: relative;
 	}
 }
 
