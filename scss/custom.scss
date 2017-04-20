@@ -18,30 +18,16 @@
   padding-left: 20px;
 }
 
-.page-heading{
-  width: 100%;
-  background-color: #E0E0E0;
-  font-size: 30px;
-  line-height: 30px;
-  -moz-box-shadow:    inset  0  8px 8px -8px #696868,
-                      inset  0 -8px 8px -8px #696868;
-  -webkit-box-shadow: inset  0  8px 8px -8px #696868,
-                      inset  0 -8px 8px -8px #696868;
-   box-shadow:        inset  0  8px 8px -8px #696868,
-                      inset  0 -8px 8px -8px #696868;
-}
-
-section#g-title,
-section#g-title .g-content {
-  margin: 0px;
-  padding: 0px;
-}
-
-.announcements{
+.announcements {
   padding: 20px;
   border-radius: 3px;
   background-color: #fff59d;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.page-heading {
+  margin: 0;
+  text-decoration: underline;
 }
 
 aside div.title{
@@ -158,4 +144,46 @@ hr{
   .hero-img{
     background-size: auto 100%;
   }
+}
+
+@import "dependencies";
+
+//Fixed Header On Scroll - Advanced
+.headroom {
+    @include transition(transform 300ms linear);
+}
+.headroom--pinned {
+    @include transform(translateY(0%));
+}
+.headroom--unpinned {
+    @include transform(translateY(-100%));
+}
+
+#g-header.headroom--not-top {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1001;
+    left: 0;
+}
+
+.g-offcanvas-toggle.headroom--not-top {
+    position: fixed;
+    z-index: 1002;
+    &.headroom--unpinned {
+        top: 0;
+    }
+}
+
+.g-offcanvas-open {
+    #g-header.headroom--not-top {
+        left: $offcanvas-width;
+    }
+    .g-offcanvas-toggle.headroom--not-top {
+        left: $offcanvas-width + 0.7rem;
+    }
+}
+
+#g-header.headroom--not-top, .g-offcanvas-toggle.headroom--not-top {
+    @include transition(all 0.3s);
 }
