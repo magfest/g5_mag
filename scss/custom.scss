@@ -257,3 +257,16 @@ hr{
 #g-header.headroom--not-top, .g-offcanvas-toggle.headroom--not-top {
     @include transition(all 0.3s);
 }
+
+#g-container-main {
+    background: rgb(232, 242, 255);
+}
+
+.g-content {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+p {
+    margin: 0;
+}
