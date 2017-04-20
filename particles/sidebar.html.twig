@@ -2,7 +2,7 @@
 
 {% block particle %}
 	<aside class="announcements">
-		<div class="title"><i class="fa fa-arrow-right"></i> Useful Links <i class="fa fa-arrow-left"></i></div><br>
+		<div class="title"><i class="fa fa-arrow-right"></i> Join Us!</div><br>
 		<ul>
       {% for p in particle.buttons %}
         <li><i class="fa {% if p.icon %}{{p.icon}}{% else %}fa-link{% endif %}"></i> <a href="{{p.url}}">{{p.title}}</a></li>
