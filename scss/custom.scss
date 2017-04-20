@@ -53,16 +53,21 @@
   padding: 20px;
 }
 
-.announcements a{
+.announcements a, footer a, .branding {
   color: white;
   text-shadow:  0px 1px #212121;
 }
 
-.announcements a:hover{
+.announcements a:hover, footer a:hover {
   color: #FDD835;
   text-decoration: none;
   font-weight: 600;
   text-shadow:  0px 1.5px #E65100;
+}
+
+.announcements li {
+  background: rgba(10, 1, 1, 0.5);
+  padding-left: 5px;
 }
 
 .page-heading {
@@ -82,6 +87,10 @@ footer#g-footer{
   -webkit-box-shadow: 0px -2px 20px 0px rgba(0,0,0,0.38);
   -moz-box-shadow: 0px -2px 20px 0px rgba(0,0,0,0.38);
   box-shadow: 0px -2px 20px 0px rgba(0,0,0,0.38);
+}
+
+footer a {
+  text-decoration: underline;
 }
 
 aside div.title{
