@@ -2,12 +2,14 @@
 
 {% block particle %}
 	<aside class="announcements">
-		<div class="title"><a href="/announcements"><i class="fa fa-bullhorn"></i> Announcements</a></div><br>
-		<ul>
-      {% for p in pages.find("/announcements").children %}
-        <li><i class="fa fa-link"></i> <a href="{{p.url}}">{{p.title}}</a></li>
-				{% if not loop.last %}<hr>{% endif %}
-      {% endfor %}
-    </ul>
+		<div class="title header"><a href="/announcements"><i class="fa fa-bullhorn"></i> Announcements</a></div>
+    <div class="content">
+      <ul>
+        {% for p in pages.find("/announcements").children %}
+          <li><i class="fa fa-link"></i> <a href="{{p.url}}">{{p.title}}</a></li>
+  				{% if not loop.last %}<hr>{% endif %}
+        {% endfor %}
+      </ul>
+    </div>
 	</aside>
 {% endblock %}
