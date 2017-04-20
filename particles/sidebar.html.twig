@@ -2,12 +2,13 @@
 
 {% block particle %}
 	<aside class="announcements">
-		<div class="title"><i class="fa fa-arrow-right"></i> Join Us!</div><br>
+		<div class="title header"><i class="fa fa-sign-in"></i> Join Us!</div>
+  	<div class="content">
 		<ul>
       {% for p in particle.buttons %}
         <li><i class="fa {% if p.icon %}{{p.icon}}{% else %}fa-link{% endif %}"></i> <a href="{{p.url}}">{{p.title}}</a></li>
-				{% if not loop.last%}<hr>{% endif %}
       {% endfor %}
     </ul>
+		<div>
 	</aside>
 {% endblock %}

@@ -7,7 +7,6 @@
       <ul>
         {% for p in pages.find("/announcements").children %}
           <li><i class="fa fa-link"></i> <a href="{{p.url}}">{{p.title}}</a></li>
-  				{% if not loop.last %}<hr>{% endif %}
         {% endfor %}
       </ul>
     </div>
