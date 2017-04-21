@@ -1,6 +1,7 @@
 {% extends '@nucleus/partials/particle.html.twig' %}
 
 {% block particle %}
+{% if not page.header.hide_title %}
 	<h1 class="page-heading">
     {% if particle.title %}
       {{particle.title}}
@@ -8,4 +9,5 @@
       {{page.title}}
     {% endif %}
 	</h1>
+{% endif %}
 {% endblock %}
