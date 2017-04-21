@@ -1,23 +1,15 @@
 {% extends '@nucleus/partials/particle.html.twig' %}
 
 {% block particle %}
-	<div class="fabs fixed-action-btn click-to-toggle">
-	 <a class="btn-floating btn-large red">
-		 <i class='fa {% if particle.icon %}{{particle.icon}}{% else %}fa-share-square-o{% endif %}'></i>
-	 </a>
-	 <ul>
-		 {% for sm in particle.buttons %}
-		 <li><a href="{{ sm.url }}" class="btn-floating {% if sm.class %}{{sm.class}}{% else %}white-text red{% endif %}"><i class="fa {{sm.icon}} center-align"></i></a></li>
-		 {% endfor %}
-	 </ul>
-
- 	</div>
-{% endblock %}
-
-{% block javascript_footer %}
-<script>
-$(function() {
-	$('.fixed-action-btn').openFAB();
-});
-</script>
+<ul class="social-buttons">
+	 {% for sm in particle.buttons %}
+	 	<li class="social-button">
+			<a href="{{ sm.url }}"
+				class="{% if sm.class %}{{sm.class}}{% endif %}"
+			>
+				<i class="fa {{sm.icon}} center-align"></i>
+			</a>
+		</li>
+	 {% endfor %}
+</ul>
 {% endblock %}
