@@ -3,10 +3,13 @@
 {% block particle %}
 <ul class="social-buttons">
 	 {% for sm in particle.buttons %}
+	 	<li class="social-button">
 			<a href="{{ sm.url }}"
-				class="btn-floating {% if sm.class %}{{sm.class}}{% else %}red{% endif %}">
+				class="{% if sm.class %}{{sm.class}}{% endif %}"
+			>
 				<i class="fa {{sm.icon}} center-align"></i>
 			</a>
+		</li>
 	 {% endfor %}
 </ul>
 {% endblock %}
