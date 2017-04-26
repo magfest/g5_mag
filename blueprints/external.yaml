@@ -30,7 +30,7 @@ form:
 
             header.redirect:
                 type: text
-                label: PLUGIN_ADMIN.REDIRECT
+                label: PLUGIN_ADMIN.EXTERNAL_URL
                 placeholder: https://magfest.org
                 validate:
                     required: true
