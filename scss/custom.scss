@@ -113,7 +113,7 @@ aside div.title{
     padding: 20px;
   }
 
-  a, footer a, .branding, .social-button {
+  a, footer a, .branding {
     color: white;
     text-shadow:  0px 1px #212121;
     padding-top: 1.75rem;
@@ -123,7 +123,7 @@ aside div.title{
     padding-top: 0;
   }
 
-  a:hover, footer a:hover, .social-button:hover {
+  a:hover, footer a:hover {
     color: #FDD835;
     text-decoration: none;
     font-weight: 600;
