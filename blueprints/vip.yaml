@@ -39,7 +39,7 @@ form:
             header.social_media:
               name: social_media
               type: list
-              label: Font Awesome + Button
+              label: Font Awesome + Button http://fontawesome.io/icons/
 
               fields:
                 .icon:
