@@ -8,7 +8,23 @@
       {% for p in particle.buttons %}
         <li><i class="fa {% if p.icon %}{{p.icon}}{% else %}fa-link{% endif %}"></i> <a href="{{p.url}}">{{p.title}}</a></li>
       {% endfor %}
+			<li><i class="fa fa-paper-plane"></i> <a data-controls-modal='sb-overlay'>Contact Us!</a></li>
     </ul>
 		<div>
 	</aside>
+	<script>
+//<![CDATA[
+var sbhost = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Cscript src='" + sbhost +"d3932137p5ikt7.cloudfront.net/widget_v3/loader.min.js' type='text/javascript'%3E%3C/script%3E"));//]]>
+</script>
+<script>
+ sb_contact_form('initialize',{
+company: 'magfest',
+height: '500px',
+position: 'none',
+locale: 'en',
+captcha: 'true',
+forwarding_address_id: '14585'
+});
+</script>
 {% endblock %}
