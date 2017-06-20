@@ -7,10 +7,12 @@
   <h2>Announcements</h2>
   <ul>
   {% for post in page.find('/announcements').children.order('date', 'desc').slice(0, 10) %}
+  {% if post.visible %}
     <li>
       <a href="{{ post.url }}"><h5>{{ post.title }} - {{ post.date|date("m/d/Y") }}</h5></a>
       <p>{{ post.summary | regex_replace(["/<h1>/", "/<\\/h1>/", "/<h2>/", "/<\\/h2>/", "/<p>/", "/<\\/p>/"], " ") | striptags }} <a href="{{ post.url }}">(read more)</a></p>
     </li>
+    {% endif %}
   {% endfor %}
   </ul>
 </div>
