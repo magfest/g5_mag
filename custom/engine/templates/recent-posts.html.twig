@@ -5,15 +5,28 @@
 
 <div class="announcements">
   <h2>Announcements</h2>
-  <ul>
-  {% for post in page.find('/announcements').children.order('publish_date', 'desc').slice(0, 10) %}
+  <div class='row'>
+  {% for post in page.find('/announcements').children.order('publish_date', 'asc').slice(0, 10) %}
   {% if post.visible %}
-    <li>
-      <a href="{{ post.url }}"><h5>{{ post.title }} - {{ post.publish_date|date("m/d/Y") }}</h5></a>
-      <p>{{ post.summary | regex_replace(["/<h1>/", "/<\\/h1>/", "/<h2>/", "/<\\/h2>/", "/<p>/", "/<\\/p>/"], " ") | striptags }} <a href="{{ post.url }}">(read more)</a></p>
-    </li>
+    <div class='col s6'>
+      <div class='card medium grey lighten-4'>
+        {% set image = post.media.images|first %}
+        {% if image %}
+          <div class='card-image'>
+            {{image.html('','', 'responsive-img')|raw}}
+            <span class='card-title'><a href="{{ post.url }}"><h5 class='white-text text-lighten-4'>{{ post.title }}</h5></a></span>
+          </div>
+        {% endif %}
+        <div class='card-content'>
+          {% if not image %}<span class='card-title'><a href="{{ post.url }}"><h5>{{ post.title }}</h5></a></span>{% endif %}
+          {{ post.summary | regex_replace(["/<h1>/", "/<\\/h1>/", "/<h2>/", "/<\\/h2>/", "/<p>/", "/<\\/p>/"], " ") | striptags }} <a href="{{ post.url }}">(read more)</a>
+        </div>
+        <!--<div class='card-action'>
+           Published: {{ post.publish_date|date("m/d/Y") }}
+      </div>-->
+    </div>
     {% endif %}
   {% endfor %}
-  </ul>
+  </div>
 </div>
 {% endblock %}
