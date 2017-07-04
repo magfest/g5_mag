@@ -1,17 +1,33 @@
 {% extends '@nucleus/partials/particle.html.twig' %}
 
 {% block particle %}
+<div class='row'>
   {% for p in page.children %}
   {% if p.visible %}
   {% set image = p.media.images|first %}
-    <div class="card">
-      <div class="hero-img bottom-inner-shadow"{% if image %}style="background-image: url('{{image.url}}')"{% endif %}></div>
-      <div class="content">
-        <h1 class="title">{{p.title}}</h1>
-        <p>{{p.summary|raw}}</p>
-        <div><a href="{{p.url}}">Read More</a></div>
+  <div class='col s12 l6'>
+    <div class="card large grey lighten-4">
+      <a href='{{p.url}}'><div class='card-image'>
+        {{image.html('','', 'responsive-img')|raw}}
+        <span class='card-title'><h5 class="white-text text-lighten-4">{{p.title}}</h5></span>
+      </div></a>
+      <div class="card-content">
+        {{p.summary|raw}}
+      </div>
+      <div class='card-action'>
+        <div class='row social_media_footer center'>
+        {% for item in p.header.social_media %}
+        <div class='col s3'>
+          <a href='{{item.url}}' class='button grey darken-2 white-text'>
+            <i class='fa {{item.icon ? item.icon : 'fa-link'}}'></i>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
       </div>
     </div>
+  </div>
     {% endif %}
   {% endfor %}
+</div>
 {% endblock %}

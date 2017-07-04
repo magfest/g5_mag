@@ -4,12 +4,16 @@
 {{ page.content|raw }}
 
 <div class="announcements">
-  <h2>Announcements</h2>
+  {% set cPage = uri.query('page') ? uri.query('page') : 1 %}
+  {% set start = (cPage - 1) * 10 %}
+  {% set end  = start + 10 %}
+  {% set posts = page.find('/announcements').children.published() %}
   <div class='row'>
-  {% for post in page.find('/announcements').children.order('publish_date', 'asc').slice(0, 10) %}
+
+  {% for post in posts.order('publish_date', 'asc').slice(start, end) %}
   {% if post.visible %}
-    <div class='col s6'>
-      <div class='card medium grey lighten-4'>
+    <div class='col s12 l6'>
+      <div class='card large grey lighten-4'>
         {% set image = post.media.images|first %}
         {% if image %}
           <div class='card-image'>
@@ -25,8 +29,28 @@
            Published: {{ post.publish_date|date("m/d/Y") }}
       </div>-->
     </div>
+  </div>
     {% endif %}
   {% endfor %}
+
   </div>
+  <div class='row'>
+  <ul class='pagination'>
+    {% if cPage > 1 %}
+    <li class="waves-effect"><a href="?page={{cPage - 1}}"><i class="material-icons">chevron_left</i></a></li>
+    {% else %}
+    <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+    {% endif %}
+    <li><form action=''>
+      <input type='number' name='page' min='1' max='{{(posts.count() / 10) + 1}}' value='{{cPage}}'/>
+      <input type='submit' value='Go To Page' />
+    </form></li>
+    {% if cPage * 10 < posts.count() %}
+    <li class="waves-effect"><a href="?page={{cPage + 1}}"><i class="material-icons">chevron_right</i></a></li>
+    {% else %}
+    <li class="disabled"><a href="#"><i class="material-icons">chevron_right</i></a></li>
+    {% endif %}
+  </ul>
+</div>
 </div>
 {% endblock %}
