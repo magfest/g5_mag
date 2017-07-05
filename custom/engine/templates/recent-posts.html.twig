@@ -10,7 +10,7 @@
   {% set posts = page.find('/announcements').children.published() %}
   <div class='row'>
 
-  {% for post in posts.order('publish_date', 'asc').slice(start, end) %}
+  {% for post in posts.order('publish_date', 'desc').slice(start, end) %}
   {% if post.visible %}
     <div class='col s12 l6'>
       <div class='card large grey lighten-4'>
