@@ -16,10 +16,12 @@
       <div class='card large grey lighten-4'>
         {% set image = post.media.images|first %}
         {% if image %}
+        <a href="{{ post.url }}">
           <div class='card-image'>
             {{image.html('','', 'responsive-img')|raw}}
-            <span class='card-title'><a href="{{ post.url }}"><h5 class='white-text text-lighten-4'>{{ post.title }}</h5></a></span>
+            <span class='card-title'><h5 class='white-text text-lighten-4'>{{ post.title }}</h5></span>
           </div>
+        </a>
         {% endif %}
         <div class='card-content'>
           {% if not image %}<span class='card-title'><a href="{{ post.url }}"><h5>{{ post.title }}</h5></a></span>{% endif %}
