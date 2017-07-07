@@ -25,7 +25,7 @@
         {% endif %}
         <div class='card-content'>
           {% if not image %}<span class='card-title'><a href="{{ post.url }}"><h5>{{ post.title }}</h5></a></span>{% endif %}
-          {{ post.summary | raw }} <a href="{{ post.url }}">(read more)</a>
+          {{ post.summary | regex_replace(["/<h1>/", "/<\\/h1>/", "/<h2>/", "/<\\/h2>/", "/<p>/", "/<\\/p>/"], " ") | striptags }} <a href="{{ post.url }}">(read more)</a>
         </div>
         <!--<div class='card-action'>
            Published: {{ post.publish_date|date("m/d/Y") }}
