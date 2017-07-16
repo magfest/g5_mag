@@ -4,14 +4,15 @@
 {{ page.content|raw }}
 
 <div class="announcements">
+  <a href="#announcements"></a>
+  {% set post_count = 10 %}
   {% set cPage = uri.query('page') ? uri.query('page') : 1 %}
-  {% set start = (cPage - 1) * 10 %}
-  {% set end  = start + 10 %}
+  {% set start = (cPage - 1) * post_count %}
+  {% set end  = start + post_count %}
   {% set posts = page.find('/announcements').children.published() %}
   <div class='row'>
-
-  {% for post in posts.order('publish_date', 'desc').slice(start, end) %}
-  {% if post.visible %}
+  {% for post in posts.copy().order('publish_date', 'desc').slice(start, end) %}
+  {% if post.published %}
     <div class='col s12 l6'>
       <div class='card large grey lighten-4'>
         {% set image = post.media.images|first %}
@@ -43,10 +44,38 @@
     {% else %}
     <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
     {% endif %}
-    <li><form action=''>
-      <input type='number' name='page' min='1' max='{{(posts.count() / 10) + 1}}' value='{{cPage}}'/>
-      <input type='submit' value='Go To Page' />
-    </form></li>
+    {% set offset = posts.count() % 10 > 0 ? 10 - (posts.count() % 10) : 0 %}
+    {% set max_page_count = (posts.count() + offset) / post_count %}
+    {% set low_offset = cPage - 2 %}
+    {% set high_offset = cPage + 2 %}
+    {% set min_page_count = 1 %}
+    {% set pages_to_view = [min_page_count, max_page_count] %}
+    {% for page in low_offset..high_offset %}
+    {% if page >= min_page_count and page <= max_page_count %}
+      {% set pages_to_view = pages_to_view|merge([page]) %}
+    {% endif %}
+    {% endfor %}
+    {% set newArray = [] %}
+
+    {% for name in pages_to_view %}
+       {% if name not in newArray %}
+       {% set newArray = newArray|merge([name]) %}
+       {% endif %}
+    {% endfor %}
+    {% for page in newArray|sort %}
+    {% if loop.first and page < low_offset-1 %}
+    <li class="{{ page == cPage ? "active" : "waves-effect" }}"><a href="?page={{page}}">{{page}}</a></li>
+    <li class="waves-effect"><a href="#!">..</a></li>
+    {% elseif loop.last and page > high_offset+1 %}
+    <li class="waves-effect"><a href="#!">..</a></li>
+    <li class="{{ page == cPage ? "active" : "waves-effect" }}"><a href="?page={{page}}">{{page}}</a></li>
+    {% else %}
+    <li class="{{ page == cPage ? "active" : "waves-effect" }}"><a href="?page={{page}}">{{page}}</a></li>
+    {% endif %}
+    {% endfor %}
+
+
+
     {% if cPage * 10 < posts.count() %}
     <li class="waves-effect"><a href="?page={{cPage + 1}}"><i class="material-icons">chevron_right</i></a></li>
     {% else %}
